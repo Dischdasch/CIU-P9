@@ -3,7 +3,7 @@
 
 Se ha realizado un programa del juego pong con una pelota que se puede controlar a través de un sensor de infrarrojo.
 ![animaciona](https://user-images.githubusercontent.com/44921828/163979163-a0b311b8-9ac8-4dad-b47a-adf06db1e556.gif)
-*/Gif de Pong realizado*/
+*Gif de Pong realizado*
 
 
 Se utiliza un microcontroller Arduino Uno con un sensor infrarrojo conectado.
