@@ -8,21 +8,23 @@ Se ha realizado un programa del juego pong con una pelota que se puede controlar
 
 Se utiliza un microcontroller Arduino Uno con un sensor infrarrojo conectado.
 
-## Leer el valor del sensor
-El signal del sensor es recibido por un c++ script que lee el signalo del input analogo y almacena el valor en una variable val.<br/>
+## Leer el valor del sensor en c++
+El signal del sensor que mide la distancia del infrarojo es recibido por un c++ script que lee el signalo del input analogo y almacena el valor en una variable val.<br/>
 ``` val = analogRead(analogPin);  // read the input pin ``` <br/>
   Además, imprimimos val en el output serial para controlar los valores de val. <br/>
 ``` Serial.println(val); ```  <br/>
 Al final tenemos un delay de 50 milisegundos para obtener un resultado mas estable. Con eso delay el programa todavia es demasiado rapido para reaccionar al movimiento del usuario.
 
 ## Usar el valor del sensor en Pong
-Las funcionas del POng estan escribido aqui en general.
-Usamos eso programa y cambiamos algunos lineas para usar los valores del sensor y usar los para controlar la pelota del jugador 2 a la dereacho lado.
+Tenemos un programa de Pong con dos jugadores que pueden controlar raquetas que deben golpear la pelota.
+Si la raqueta no goplea la pelota, hay un gol por el otro jugador. El jugador que tiene 3 gols gana.
+Las funcionas del Pong en general estan escribido detallado [aqui](https://github.com/marco-nh/CIU-Practica-1).
+Usamos eso programa y cambiamos algunos lineas para usar los valores del sensor infrarojo y usar los para controlar la pelota del jugador 2 a la dereacho lado.
 
-### Leer el valor
+### Leer el valor en Processing
 iniciar el port en setup: <br/>
 ```
-String portName = Serial.list()[5]; //change the 0 to a 1 or 2 etc. to match your port
+String portName = Serial.list()[5]; 
 myPort = new Serial(this, portName, 9600); 
 ```
 
@@ -31,9 +33,10 @@ Leer el port en draw <br/>
 if ( myPort.available() > 0)
   {  // If data is available,
     val = myPort.readStringUntil('\n'); // read it and store it in val 
+  }
 ``` 
     
-### Usar el valor
+### Usar el valor en Processing
 ``` 
 if(val != null) //compoba si el valor es null
     { //si no mapa el valor a las posibles posiciones de la posicion de la pelota 2
