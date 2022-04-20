@@ -9,7 +9,7 @@ Se ha realizado un programa del juego pong con una pelota que se puede controlar
 Se utiliza un microcontroller Arduino Uno con un sensor infrarrojo conectado.
 
 ## Leer el valor del sensor en c++
-El signal del sensor que mide la distancia del infrarojo es recibido por un c++ script que lee el signalo del input analogo y almacena el valor en una variable val.<br/>
+El señal del sensor que mide la distancia del infrarojo es recibido por un c++ script que lee el señal del input analogo y almacena el valor en una variable val.<br/>
 ``` val = analogRead(analogPin);  // read the input pin ``` <br/>
   Además, imprimimos val en el output serial para controlar los valores de val. <br/>
 ``` Serial.println(val); ```  <br/>
