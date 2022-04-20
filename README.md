@@ -21,18 +21,21 @@ Usamos eso programa y cambiamos algunos lineas para usar los valores del sensor 
 
 ### Leer el valor
 iniciar el port en setup: <br/>
-``` String portName = Serial.list()[5]; //change the 0 to a 1 or 2 etc. to match your port
+```
+String portName = Serial.list()[5]; //change the 0 to a 1 or 2 etc. to match your port
 myPort = new Serial(this, portName, 9600); 
-``` <br/>
+```
 
 Leer el port en draw <br/>
-``` if ( myPort.available() > 0)
+``` 
+if ( myPort.available() > 0)
   {  // If data is available,
     val = myPort.readStringUntil('\n'); // read it and store it in val 
-    ``` <br/>
+``` 
     
 ### Usar el valor
-``` if(val != null) //compoba si el valor es null
+``` 
+if(val != null) //compoba si el valor es null
     { //si no mapa el valor a las posibles posiciones de la posicion de la pelota 2
     pos2 = map(float(val),200,600,0,400);
     if(pos2 > 350)
@@ -44,7 +47,7 @@ Leer el port en draw <br/>
       pos2 = 0;
     }
   } 
-  ``` <br/>
+``` 
 
 
 Usamos la funcion map porque es institivo que la pelota se mueva al bajo si el mano es bajo y que la peolte esta arriba si el mano es a la maxima alta que el sensor puede computar.
