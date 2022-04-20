@@ -2,7 +2,7 @@
 ## Arduino y Processing
 
 Se ha realizado un programa del juego pong con una pelota que se puede controlar a través de un sensor de infrarrojo.
-![animaciona](https://user-images.githubusercontent.com/44921828/163979163-a0b311b8-9ac8-4dad-b47a-adf06db1e556.gif)
+![animaciona](https://user-images.githubusercontent.com/44921828/163979163-a0b311b8-9ac8-4dad-b47a-adf06db1e556.gif)  <br/>
 *Gif de Pong realizado*
 
 
@@ -19,7 +19,7 @@ Al final tenemos un delay de 50 milisegundos para obtener un resultado mas estab
 Tenemos un programa de Pong con dos jugadores que pueden controlar raquetas que deben golpear la pelota.
 Si la raqueta no goplea la pelota, hay un gol por el otro jugador. El jugador que tiene 3 gols gana.
 Las funcionas del Pong en general estan escribido detallado [aqui](https://github.com/marco-nh/CIU-Practica-1).
-Usamos eso programa y cambiamos algunos lineas para usar los valores del sensor infrarojo y usar los para controlar la pelota del jugador 2 a la dereacho lado.
+Usamos eso programa y cambiamos algunos lineas para usar los valores del sensor infrarojo y usar los para controlar la raqueta del jugador 2 a la dereacho lado.
 
 ### Leer el valor en Processing
 iniciar el port en setup: <br/>
@@ -28,7 +28,7 @@ String portName = Serial.list()[5];
 myPort = new Serial(this, portName, 9600); 
 ```
 
-Leer el port en draw <br/>
+Leer el port en draw: <br/>
 ``` 
 if ( myPort.available() > 0)
   {  // If data is available,
@@ -37,6 +37,7 @@ if ( myPort.available() > 0)
 ``` 
     
 ### Usar el valor en Processing
+Mapamos el rango que el sensor puede medir a la altitud de nuestra ventana. Entonces, la posicion de la raqueta dos se establace en la altidud mapeada.
 ``` 
 if(val != null) //compoba si el valor es null
     { //si no mapa el valor a las posibles posiciones de la posicion de la pelota 2
