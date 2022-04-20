@@ -37,17 +37,17 @@ if ( myPort.available() > 0)
 ``` 
     
 ### Usar el valor en Processing
-Mapamos el rango que el sensor puede medir a la altitud de nuestra ventana. Entonces, la posicion de la raqueta dos se establace en la altidud mapeada.
+Mapamos el alcance que el sensor puede medir a la altitud de nuestra ventana. Entonces, la posicion de la raqueta dos se establace en la altidud mapeada.
 ``` 
 if(val != null) //compoba si el valor es null
     { //si no mapa el valor a las posibles posiciones de la posicion de la pelota 2
     pos2 = map(float(val),200,600,0,400);
     if(pos2 > 350)
-    {//si el sensor ha un valor fuera del range (rango en spanol???)
+    {//si el sensor ha un valor fuera del alcance
       pos2 = 400-50;
     }
     if(pos2 < 0)
-    {//si el sensor ha un valor fuera del range (rango en spanol???)
+    {//si el sensor ha un valor fuera del alcance
       pos2 = 0;
     }
   } 
